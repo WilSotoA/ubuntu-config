@@ -29,6 +29,12 @@ scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5
 scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null
 ```
 
+## Ohmybash
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+```
+
 ## Docker
 
 1. install docker
@@ -65,4 +71,25 @@ docker run hello-world
 ```bash
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
+```
+
+## DDEV
+
+```bash
+# Initialize mkcert
+mkcert -install
+# Add DDEV’s GPG key to your keyring
+sudo sh -c 'echo ""'
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://pkg.ddev.com/apt/gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/ddev.gpg > /dev/null
+sudo chmod a+r /etc/apt/keyrings/ddev.gpg
+
+# Add DDEV releases to your package repository
+sudo sh -c 'echo ""'
+echo "deb [signed-by=/etc/apt/keyrings/ddev.gpg] https://pkg.ddev.com/apt/ * *" | sudo tee /etc/apt/sources.list.d/ddev.list >/dev/null
+
+# Update package information and install DDEV
+sudo sh -c 'echo ""'
+sudo apt update && sudo apt install -y ddev
+
 ```

@@ -31,8 +31,18 @@ scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share
 
 ## Ohmybash
 
+1. install ohmybash
+
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+```
+
+2. Change theme
+
+```bash
+nano .bashrc
+# search OSH_THEME config and change theme
+OSH_THEME="rr"
 ```
 
 ## Docker
